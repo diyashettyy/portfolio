@@ -798,10 +798,6 @@ export default function Portfolio() {
                   <span>diyashetty145@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Phone className="w-4 h-4" />
-                  <span>+91 8277870600</span>
-                </div>
-                <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />
                   <span>Mangalore, Karnataka</span>
                 </div>
