@@ -616,9 +616,12 @@ export default function Portfolio() {
                   <div>
                     <Textarea placeholder="Message" rows={5} className="bg-input border-border" />
                   </div>
-                  <Button className="w-full bg-black hover:bg-black/90 text-white transform hover:scale-105 transition-all duration-300">
+                  <Button
+                    onClick={handleSend}
+                    className="w-full bg-black hover:bg-black/90 text-white transform hover:scale-105 transition-all duration-300"
+                  >
                     Send Message
-                  </Button>
+                  </Button>
                 </CardContent>
               </Card>
             </motion.div>
