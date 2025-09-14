@@ -126,11 +126,15 @@ export default function Portfolio() {
             transition={{ duration: 0.6, delay: 2.5 }}
           >
             <Button
+              asChild
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground transform hover:scale-105 transition-all duration-300"
             >
-              View Resume
+              <a href="https://drive.google.com/file/d/1FOUGWHAoOvOVVGCCGeudnNGHzEE4KCRg/view?usp=drive_link " target="_blank" rel="noopener noreferrer">
+                View Resume
+              </a>
             </Button>
+
             <Button
               size="lg"
               variant="outline"
