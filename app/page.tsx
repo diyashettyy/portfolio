@@ -130,7 +130,7 @@ export default function Portfolio() {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground transform hover:scale-105 transition-all duration-300"
             >
-              <a href="https://drive.google.com/file/d/1FOUGWHAoOvOVVGCCGeudnNGHzEE4KCRg/view?usp=drive_link " target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1BHfFdkordI0eS4BXb1_ng2hj9TuUi6Yj/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                 View Resume
               </a>
             </Button>
