@@ -128,6 +128,7 @@ export default function Portfolio() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground transform hover:scale-105 transition-all duration-300"
+              onClick={() => window.open("https://drive.google.com/file/d/1BHfFdkordI0eS4BXb1_ng2hj9TuUi6Yj/view", "_blank")}
             >
               View Resume
             </Button>
