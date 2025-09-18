@@ -126,15 +126,11 @@ export default function Portfolio() {
             transition={{ duration: 0.6, delay: 2.5 }}
           >
             <Button
-              asChild
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground transform hover:scale-105 transition-all duration-300"
             >
-              <a href="https://drive.google.com/file/d/1BHfFdkordI0eS4BXb1_ng2hj9TuUi6Yj/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                View Resume
-              </a>
+              View Resume
             </Button>
-
             <Button
               size="lg"
               variant="outline"
@@ -616,13 +612,9 @@ export default function Portfolio() {
                   <div>
                     <Textarea placeholder="Message" rows={5} className="bg-input border-border" />
                   </div>
-                  <Button
-                    onClick={handleSend}
-                    className="w-full bg-black hover:bg-black/90 text-white transform hover:scale-105 transition-all duration-300"
-                  >
+                  <Button className="w-full bg-black hover:bg-black/90 text-white transform hover:scale-105 transition-all duration-300">
                     Send Message
                   </Button>
-
                 </CardContent>
               </Card>
             </motion.div>
@@ -802,6 +794,10 @@ export default function Portfolio() {
                   <span>diyashetty145@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-2">
+                  <Phone className="w-4 h-4" />
+                  <span>+91 8277870600</span>
+                </div>
+                <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4" />
                   <span>Mangalore, Karnataka</span>
                 </div>
@@ -826,4 +822,5 @@ export default function Portfolio() {
     </div>
   )
 }
+
 
