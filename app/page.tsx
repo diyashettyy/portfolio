@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Github, Linkedin, Mail, Phone, ExternalLink, ChevronDown, MapPin } from "lucide-react"
+import { Github, Linkedin, Mail, ExternalLink, ChevronDown, MapPin } from "lucide-react"
 
 const TypingEffect = ({ text, speed = 100 }: { text: string; speed?: number }) => {
   const [displayText, setDisplayText] = useState("")
@@ -29,6 +29,16 @@ const TypingEffect = ({ text, speed = 100 }: { text: string; speed?: number }) =
 
 export default function Portfolio() {
   const [isVisible, setIsVisible] = useState(false)
+  const [name, setName] = useState("")
+  const [userEmail, setUserEmail] = useState("")
+  const [message, setMessage] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    const subject = `Portfolio Inquiry from ${name}`
+    const body = `Name: ${name}\nEmail: ${userEmail}\n\nMessage:\n${message}`
+    window.location.href = `mailto:diyashetty145@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
 
   useEffect(() => {
     setIsVisible(true)
@@ -603,19 +613,41 @@ export default function Portfolio() {
                 <CardHeader>
                   <CardTitle className="text-primary text-xl">Send me a message</CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <Input placeholder="Name" className="bg-input border-border" />
-                  </div>
-                  <div>
-                    <Input type="email" placeholder="Email" className="bg-input border-border" />
-                  </div>
-                  <div>
-                    <Textarea placeholder="Message" rows={5} className="bg-input border-border" />
-                  </div>
-                  <Button className="w-full bg-black hover:bg-black/90 text-white transform hover:scale-105 transition-all duration-300">
-                    Send Message
-                  </Button>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div>
+                      <Input
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Name"
+                        className="bg-input border-border"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Input
+                        value={userEmail}
+                        onChange={(e) => setUserEmail(e.target.value)}
+                        type="email"
+                        placeholder="Email"
+                        className="bg-input border-border"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <Textarea
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        placeholder="Message"
+                        rows={5}
+                        className="bg-input border-border"
+                        required
+                      />
+                    </div>
+                    <Button type="submit" className="w-full bg-black hover:bg-black/90 text-white transform hover:scale-105 transition-all duration-300">
+                      Send Message
+                    </Button>
+                  </form>
                 </CardContent>
               </Card>
             </motion.div>
@@ -640,18 +672,6 @@ export default function Portfolio() {
                     <div>
                       <p className="font-medium text-foreground">Email</p>
                       <p className="text-muted-foreground">diyashetty145@gmail.com</p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 border-border hover:shadow-md transition-all duration-300">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-accent p-3 rounded-full">
-                      <Phone className="w-5 h-5 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Phone</p>
-                      <p className="text-muted-foreground">+91 8277870600</p>
                     </div>
                   </div>
                 </Card>
@@ -819,5 +839,3 @@ export default function Portfolio() {
     </div>
   )
 }
-
-
