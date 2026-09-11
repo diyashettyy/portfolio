@@ -5,8 +5,6 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { Github, Linkedin, Mail, Phone, ExternalLink, ChevronDown, MapPin } from "lucide-react"
 
 const TypingEffect = ({ text, speed = 100 }: { text: string; speed?: number }) => {
@@ -28,19 +26,12 @@ const TypingEffect = ({ text, speed = 100 }: { text: string; speed?: number }) =
 }
 
 export default function Portfolio() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Navigation */}
       <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -81,9 +72,8 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-secondary/20" />
         <motion.div
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
           initial={{ opacity: 0, y: 50 }}
@@ -105,7 +95,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.5 }}
           >
-            Computer Science Engineering Student
+            Code, creativity & a mildly unhealthy attention to detail.
           </motion.p>
 
           <motion.p
@@ -114,9 +104,8 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.0 }}
           >
-            Skilled in C, Java, HTML, CSS, React, and JavaScript, with a strong foundation in Artificial Intelligence
-            and its applications. Passionate about building dynamic, efficient, and user-friendly applications while
-            exploring AI-driven solutions for real-world challenges.
+            I build websites, create content, explore AI, and generally enjoy making things on the internet. My work
+            sits somewhere between technology and creativity - and that's exactly where I like it.
           </motion.p>
 
           <motion.div
@@ -128,6 +117,9 @@ export default function Portfolio() {
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground transform hover:scale-105 transition-all duration-300"
+              onClick={() =>
+                window.open("https://drive.google.com/file/d/1UkiYyf2BQ3zbsjn9rKkDCzOcC-hYFz7h/view?usp=sharing", "_blank", "noopener,noreferrer")
+              }
             >
               View Resume
             </Button>
@@ -151,7 +143,6 @@ export default function Portfolio() {
         </motion.div>
       </section>
 
-      {/* About Section */}
       <motion.section
         id="about"
         className="py-20 bg-card"
@@ -170,8 +161,9 @@ export default function Portfolio() {
           >
             <h2 className="text-4xl font-bold text-primary mb-4">About Me</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              A dedicated Computer Science student with a passion for artificial intelligence, machine learning, and
-              creating impactful web applications.
+              I’m a Computer Science graduate from Mangalore Institute of Technology and Engineering (2026) with a
+              strong interest in technology, AI, and creative problem-solving. I enjoy building dynamic,
+              user-friendly digital experiences and exploring ideas that bring technology and creativity together.
             </p>
           </motion.div>
 
@@ -184,14 +176,13 @@ export default function Portfolio() {
               viewport={{ once: true }}
             >
               <p className="text-foreground leading-relaxed">
-                Computer Science Engineering student at Mangalore Institute of Technology and Engineering (2026),
-                skilled in C, Java, HTML, CSS, React, and JavaScript, with a strong foundation in Artificial
-                Intelligence and its applications. Passionate about building dynamic, efficient, and user-friendly
-                applications.
+                I’m a Computer Science graduate from Mangalore Institute of Technology and Engineering (2026) with a
+                strong interest in technology, AI, and creative problem-solving. I enjoy building dynamic,
+                user-friendly digital experiences and exploring ideas that bring technology and creativity together.
               </p>
               <p className="text-foreground leading-relaxed">
-                Enthusiastic about problem-solving, continuous learning, and creating seamless digital experiences, with
-                an adaptable and detail-oriented approach to contributing to innovative projects in the tech industry.
+                Curious by nature and always learning, I’m happiest when I’m creating, experimenting, and solving
+                something new.
               </p>
             </motion.div>
 
@@ -220,7 +211,6 @@ export default function Portfolio() {
         </div>
       </motion.section>
 
-      {/* Projects Section */}
       <motion.section
         id="projects"
         className="py-20 bg-card"
@@ -246,7 +236,7 @@ export default function Portfolio() {
               {
                 title: "Image Forgery Detection System",
                 description:
-                  "An advanced machine learning–driven system for detecting, classifying, and localizing image forgeries using CNNs and Error Level Analysis (ELA). Built with TensorFlow, Keras and FastAPI, featuring React.js frontend with Grad-CAM visualization support.",
+                  "An advanced machine learning-driven system for detecting, classifying, and localizing image forgeries using CNNs and Error Level Analysis (ELA). Built with TensorFlow, Keras and FastAPI, featuring React.js frontend with Grad-CAM visualization support.",
                 tech: ["TensorFlow", "Keras", "FastAPI", "React.js", "Next.js", "CNN", "ELA"],
                 category: "AI/ML",
               },
@@ -308,7 +298,6 @@ export default function Portfolio() {
         </div>
       </motion.section>
 
-      {/* Skills & Technologies Section */}
       <motion.section
         id="skills"
         className="py-20 bg-background"
@@ -338,7 +327,6 @@ export default function Portfolio() {
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Programming Languages */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -373,7 +361,6 @@ export default function Portfolio() {
                 </Card>
               </motion.div>
 
-              {/* Frontend & Mobile */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -410,7 +397,6 @@ export default function Portfolio() {
                 </Card>
               </motion.div>
 
-              {/* Backend & APIs */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -432,20 +418,21 @@ export default function Portfolio() {
                     <h3 className="text-lg font-semibold text-primary">Backend & APIs</h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {["Node.js", "Express.js", "Django", "FastAPI", "MySQL", "Firebase", "REST APIs"].map((skill) => (
-                      <Badge
-                        key={skill}
-                        variant="secondary"
-                        className="bg-accent/20 text-accent-foreground hover:bg-accent/30 transition-colors"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
+                    {["Node.js", "Express.js", "Django", "FastAPI", "MySQL", "Firebase", "REST APIs"].map(
+                      (skill) => (
+                        <Badge
+                          key={skill}
+                          variant="secondary"
+                          className="bg-accent/20 text-accent-foreground hover:bg-accent/30 transition-colors"
+                        >
+                          {skill}
+                        </Badge>
+                      ),
+                    )}
                   </div>
                 </Card>
               </motion.div>
 
-              {/* AI & Machine Learning */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -489,7 +476,6 @@ export default function Portfolio() {
                 </Card>
               </motion.div>
 
-              {/* Cloud & DevOps */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -526,7 +512,6 @@ export default function Portfolio() {
                 </Card>
               </motion.div>
 
-              {/* Tools & Design */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -590,108 +575,38 @@ export default function Portfolio() {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left side - Contact Form */}
+          <div className="max-w-4xl mx-auto space-y-10">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] items-stretch"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="border-border">
+              <Card className="border-border bg-card/80 backdrop-blur-sm shadow-sm">
                 <CardHeader>
-                  <CardTitle className="text-primary text-xl">Send me a message</CardTitle>
+                  <CardTitle className="text-primary text-xl">Let's connect</CardTitle>
+                  <CardDescription className="text-muted-foreground">
+                    For collaborations, opportunities, or just a thoughtful hello.
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <div>
-                    <Input placeholder="Name" className="bg-input border-border" />
+                  <div className="rounded-lg border border-border bg-background/60 p-4">
+                    <p className="text-sm font-medium text-primary mb-1">Email</p>
+                    <p className="text-muted-foreground">diyashetty145@gmail.com</p>
                   </div>
-                  <div>
-                    <Input type="email" placeholder="Email" className="bg-input border-border" />
+                  <div className="rounded-lg border border-border bg-background/60 p-4">
+                    <p className="text-sm font-medium text-primary mb-1">Phone</p>
+                    <p className="text-muted-foreground">+91 8277870600</p>
                   </div>
-                  <div>
-                    <Textarea placeholder="Message" rows={5} className="bg-input border-border" />
+                  <div className="rounded-lg border border-border bg-background/60 p-4">
+                    <p className="text-sm font-medium text-primary mb-1">Location</p>
+                    <p className="text-muted-foreground">Mangalore, Karnataka</p>
                   </div>
-                  <Button className="w-full bg-black hover:bg-black/90 text-white transform hover:scale-105 transition-all duration-300">
-                    Send Message
-                  </Button>
                 </CardContent>
               </Card>
-            </motion.div>
 
-            {/* Right side - Contact Information */}
-            <motion.div
-              className="space-y-8"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              {/* Contact Information Cards */}
-              <div className="space-y-6">
-                <h3 className="text-xl font-semibold text-primary mb-4">Contact Information</h3>
-
-                <Card className="p-4 border-border hover:shadow-md transition-all duration-300">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-accent p-3 rounded-full">
-                      <Mail className="w-5 h-5 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Email</p>
-                      <p className="text-muted-foreground">diyashetty145@gmail.com</p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 border-border hover:shadow-md transition-all duration-300">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-accent p-3 rounded-full">
-                      <Phone className="w-5 h-5 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Phone</p>
-                      <p className="text-muted-foreground">+91 8277870600</p>
-                    </div>
-                  </div>
-                </Card>
-
-                <Card className="p-4 border-border hover:shadow-md transition-all duration-300">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-accent p-3 rounded-full">
-                      <MapPin className="w-5 h-5 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-foreground">Location</p>
-                      <p className="text-muted-foreground">Mangalore, Karnataka</p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Follow Me Section */}
-              <div>
-                <h3 className="text-xl font-semibold text-primary mb-4">Follow Me</h3>
-                <div className="flex space-x-4">
-                  <a
-                    href="https://linkedin.com/in/shetty-diya/"
-                    className="bg-accent p-3 rounded-full hover:bg-accent/80 transition-all duration-300 transform hover:scale-110"
-                  >
-                    <Linkedin className="w-6 h-6 text-accent-foreground" />
-                  </a>
-                  <a
-                    href="https://github.com/diyashettyy"
-                    className="bg-accent p-3 rounded-full hover:bg-accent/80 transition-all duration-300 transform hover:scale-110"
-                  >
-                    <Github className="w-6 h-6 text-accent-foreground" />
-                  </a>
-                </div>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Connect with me on social media for updates on my latest projects and tech insights
-                </p>
-              </div>
-
-              {/* Ready to start a project CTA */}
-              <Card className="p-6 bg-accent/10 border-accent/20">
+              <Card className="p-6 bg-accent/10 border-accent/20 shadow-sm">
                 <h3 className="text-lg font-semibold text-primary mb-2">Ready to start a project?</h3>
                 <p className="text-muted-foreground mb-4 text-sm">
                   Let's discuss your ideas and turn them into reality. I'm always excited to work on new challenges.
@@ -705,11 +620,37 @@ export default function Portfolio() {
                 </Button>
               </Card>
             </motion.div>
+
+            <motion.div
+              className="text-center space-y-4"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-xl font-semibold text-primary">Follow Me</h3>
+              <div className="flex justify-center gap-4">
+                <a
+                  href="https://linkedin.com/in/shetty-diya/"
+                  className="bg-accent p-3 rounded-full hover:bg-accent/80 transition-all duration-300 transform hover:scale-110"
+                >
+                  <Linkedin className="w-6 h-6 text-accent-foreground" />
+                </a>
+                <a
+                  href="https://github.com/diyashettyy"
+                  className="bg-accent p-3 rounded-full hover:bg-accent/80 transition-all duration-300 transform hover:scale-110"
+                >
+                  <Github className="w-6 h-6 text-accent-foreground" />
+                </a>
+              </div>
+              <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+                Connect with me on social media for updates on my latest projects and tech insights
+              </p>
+            </motion.div>
           </div>
         </div>
       </motion.section>
 
-      {/* Footer */}
       <motion.footer
         className="bg-primary text-primary-foreground py-16"
         initial={{ opacity: 0 }}
@@ -719,7 +660,6 @@ export default function Portfolio() {
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Left Column - Name, Tagline, Social Media */}
             <div className="space-y-4">
               <h3 className="text-2xl font-bold">Diya Shetty</h3>
               <p className="text-primary-foreground/80 leading-relaxed">
@@ -748,7 +688,6 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Middle Column - Quick Links */}
             <div className="space-y-4">
               <h4 className="text-lg font-semibold">Quick Links</h4>
               <div className="space-y-2">
@@ -785,7 +724,6 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Right Column - Contact Info & CTA */}
             <div className="space-y-4">
               <h4 className="text-lg font-semibold">Contact Information</h4>
               <div className="space-y-2 text-primary-foreground/80">
@@ -811,7 +749,6 @@ export default function Portfolio() {
             </div>
           </div>
 
-          {/* Bottom Copyright */}
           <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center">
             <p className="text-primary-foreground/60">
               © 2025 Diya Shetty. All rights reserved. Built with Next.js and Tailwind CSS.
